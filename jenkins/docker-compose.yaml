@@ -56,14 +56,14 @@ networks:
 
 secrets:
   github_ssh:
-    file: /home/vagrant/.ssh/id_rsa 
+    file: /home/vagrant/credantion/.ssh/id_rsa 
   github_pat:
-    file: /home/vagrant/.github/github_pat
+    file: /home/vagrant/credantion/.github/github_pat
   accessKey: 
-    file: /home/vagrant/.aws/aws_access_key_id
+    file: /home/vagrant/credantion/.aws/aws_access_key_id
   secretKey: 
-    file: /home/vagrant/.aws/aws_secret_access_key
+    file: /home/vagrant/credantion/.aws/aws_secret_access_key
   dockerhubKey: 
-    file: /home/vagrant/.docker/dockerhubKey
+    file: /home/vagrant/credantion/.docker/dockerhubKey
   ip_docker:
-    file: /home/vagrant/.docker/ip_docker
+    file: /home/vagrant/credantion/.docker/ip_docker

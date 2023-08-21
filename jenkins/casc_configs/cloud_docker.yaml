@@ -1,0 +1,22 @@
+jenkins:
+  clouds:
+    - docker:
+        name: "docker"
+        dockerApi:
+          dockerHost:
+            uri: "tcp://jenkins-docker:2375"
+        templates:
+          - labelString: "jenkins-agent"
+            dockerTemplateBase:
+              image: "1core2/docker:dind"
+              mounts:
+                - "type=tmpfs,destination=/run"
+                - "type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock"
+              pullCredentialsId: "github_PAT"
+            remoteFs: "/home/jenkins/agent"
+            connector:
+              attach:
+                user: "jenkins"
+            instanceCapStr: "10"
+            retentionStrategy:
+              idleMinutes: 1 

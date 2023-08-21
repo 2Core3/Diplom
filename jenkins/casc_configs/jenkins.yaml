@@ -1,0 +1,67 @@
+jenkins:
+  systemMessage: "<div style='font-size:160%; background-color: powerblue;'>This Jenkins configure-test</div>"
+  numExecutors: 2
+  securityRealm:
+    local:
+      allowsSignup: false
+      users:
+        - id: ${JENKINS_ADMIN_ID}
+          password: ${JENKINS_ADMIN_PASSWORD}
+  authorizationStrategy:
+    loggedInUsersCanDoAnything:
+      allowAnonymousRead: false
+  markupFormatter:
+    rawHtml:
+      disableSyntaxHighlighting: false
+
+credentials:
+  system:
+    domainCredentials:
+      - credentials:
+          - basicSSHUserPrivateKey:
+              scope: GLOBAL
+              id: github_ssh
+              username: 2core3
+              description: "SSH Github"
+              privateKeySource:
+                directEntry:
+                  privateKey: ${github_ssh}
+          - usernamePassword:
+              scope: GLOBAL
+              id: github_PAT
+              password: ${github_pat}
+              username: 2core3
+          - string:
+              scope: GLOBAL
+              id: "aws_access"
+              secret: "${accessKey}"
+              description: "aws accessKey"
+          - string:
+              scope: GLOBAL
+              id: "aws_secret"
+              secret: "${secretKey}"
+              description: "aws secretKey"
+          - usernamePassword:
+              description: "dockerhub"
+              id: "dockerhub"
+              password: "${dockerhubKey}"
+              scope: GLOBAL
+              username: "1core2"
+          - string:
+              description: "ip_docker"
+              id: "ip_docker"
+              scope: GLOBAL
+              secret: "${ip_docker}"             
+
+security:
+  gitHostKeyVerificationConfiguration:
+    sshHostKeyVerificationStrategy: "noHostKeyVerificationStrategy"
+
+unclassified:
+  location:
+    url: ${JENKINS_URL}
+  locale:
+    ignoreAcceptLanguage: true
+    systemLocale: "EN"
+jobs:
+  - file: /var/jenkins_home/casc_configs/seedjob.groovy 

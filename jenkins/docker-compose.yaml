@@ -54,16 +54,16 @@ networks:
 
 secrets:
   github_ssh:
-    file: ~/.ssh/id_rsa 
+    file: ./credantion/.ssh/id_rsa 
   accessKey: 
-    file: ~/.aws/aws_access_key_id
+    file: ./credantion/.aws/aws_access_key_id
   secretKey: 
-    file: ~/.aws/aws_secret_access_key
+    file: ./credantion/.aws/aws_secret_access_key
   dockerhubKey: 
-    file: ~/credantion/dockerhubKey
+    file: ./credantion/credantion/dockerhubKey
   telegram_id:
-    file: ~/credantion/telegram_id
+    file: ./credantion/credantion/telegram_id
   telegram_api:
-    file: ~/credantion/telegram_api    
+    file: ./credantion/credantion/telegram_api    
   github_pat:
-    file: ~/credantion/github_pat
+    file: ./credantion/credantion/github_pat

@@ -3,7 +3,7 @@ services:
   jenkins-server:
     depends_on:
       - jenkins-docker
-    image: 1core2/jenkins:v4
+    image: 1core2/jenkins:v5
     container_name: jenkins-server
     restart: unless-stopped
     ports:
@@ -15,27 +15,25 @@ services:
       JENKINS_ADMIN_ID: ${JENKINS_ADMIN_ID}
       JENKINS_ADMIN_PASSWORD: ${JENKINS_ADMIN_PASSWORD}
       JENKINS_URL: ${JENKINS_URL}
-      #MAIL_USERNAME: ${MAIL_USERNAME}
-      #JENKINS_MAILER_SMTP_HOST: ${JENKINS_MAILER_SMTP_HOST}
       DOCKER_HOST: tcp://jenkins-docker:2375
       DOCKER_CERT_PATH: ""
       DOCKER_TLS_VERIFY: ""
     secrets:
       - github_ssh
-      - github_pat
       - accessKey
       - secretKey
       - dockerhubKey
-      - ip_docker
-      #- mail_pat
+      - telegram_id
+      - telegram_api
+      - github_pat
     volumes:
       - jenkins-data:/var/jenkins_home
-      - /home/vagrant/diplom/Diplom/jenkins/casc_configs:/var/jenkins_home/casc_configs/
+      - ./casc_configs:/var/jenkins_home/casc_configs/
     networks:
       - jenkins-network
  
   jenkins-docker:
-    image: 1core2/docker:dind
+    image: 1core2/docker:dind2
     container_name: jenkins-docker
     privileged: true
     environment:
@@ -56,14 +54,16 @@ networks:
 
 secrets:
   github_ssh:
-    file: /home/vagrant/credantion/.ssh/id_rsa 
-  github_pat:
-    file: /home/vagrant/credantion/.github/github_pat
+    file: ~/.ssh/id_rsa 
   accessKey: 
-    file: /home/vagrant/credantion/.aws/aws_access_key_id
+    file: ~/.aws/aws_access_key_id
   secretKey: 
-    file: /home/vagrant/credantion/.aws/aws_secret_access_key
+    file: ~/.aws/aws_secret_access_key
   dockerhubKey: 
-    file: /home/vagrant/credantion/.docker/dockerhubKey
-  ip_docker:
-    file: /home/vagrant/credantion/.docker/ip_docker
+    file: credantion/docker/dockerhubKey
+  telegram_id:
+    file: credantion/telegram/telegram_id
+  telegram_api:
+    file: credantion/telegram/telegram_api    
+  github_pat:
+    file: credantion/github/github_pat

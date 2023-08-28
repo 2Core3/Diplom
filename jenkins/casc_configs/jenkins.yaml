@@ -26,11 +26,6 @@ credentials:
               privateKeySource:
                 directEntry:
                   privateKey: ${github_ssh}
-          - usernamePassword:
-              scope: GLOBAL
-              id: github_PAT
-              password: ${github_pat}
-              username: 2core3
           - string:
               scope: GLOBAL
               id: "aws_access"
@@ -48,10 +43,20 @@ credentials:
               scope: GLOBAL
               username: "1core2"
           - string:
-              description: "ip_docker"
-              id: "ip_docker"
+              description: "telegram_id"
+              id: "telegram_id"
               scope: GLOBAL
-              secret: "${ip_docker}"             
+              secret: "${telegram_id}"
+          - string:
+              description: "telegram_api"
+              id: "telegram_api"
+              scope: GLOBAL
+              secret: "${telegram_api}"    
+          - usernamePassword:
+              scope: GLOBAL
+              id: github_PAT
+              password: ${github_pat}
+              username: 2core3
 
 security:
   gitHostKeyVerificationConfiguration:

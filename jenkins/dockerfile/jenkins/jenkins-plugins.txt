@@ -17,7 +17,6 @@ credentials-binding:latest
 build-timeout:latest
 antisamy-markup-formatter:latest
 cloudbees-folder:latest
-blueocean:latest
 maven-plugin:latest
 pipeline-utility-steps:latest
 docker-plugin:latest

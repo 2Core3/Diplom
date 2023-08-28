@@ -60,10 +60,10 @@ secrets:
   secretKey: 
     file: ~/.aws/aws_secret_access_key
   dockerhubKey: 
-    file: credantion/docker/dockerhubKey
+    file: ~/credantion/dockerhubKey
   telegram_id:
-    file: credantion/telegram/telegram_id
+    file: ~/credantion/telegram_id
   telegram_api:
-    file: credantion/telegram/telegram_api    
+    file: ~/credantion/telegram_api    
   github_pat:
-    file: credantion/github/github_pat
+    file: ~/credantion/github_pat

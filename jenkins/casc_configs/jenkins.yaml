@@ -57,6 +57,11 @@ credentials:
               id: github_PAT
               password: ${github_pat}
               username: 2core3
+          - string:
+              description: "dos-13-Anton_Yudin-lesson_39.pem"
+              id: "key_pem"
+              scope: GLOBAL
+              secret: "${key_pem}"
 
 security:
   gitHostKeyVerificationConfiguration:

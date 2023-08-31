@@ -8,7 +8,7 @@ jenkins:
         templates:
           - labelString: "jenkins-agent"
             dockerTemplateBase:
-              image: "1core2/docker:dind2"
+              image: "1core2/docker_dind:latest"
               mounts:
                 - "type=tmpfs,destination=/run"
                 - "type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock"

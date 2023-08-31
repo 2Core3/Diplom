@@ -26,6 +26,7 @@ services:
       - telegram_id
       - telegram_api
       - github_pat
+      - key_pem
     volumes:
       - jenkins-data:/var/jenkins_home
       - ./casc_configs:/var/jenkins_home/casc_configs/
@@ -33,7 +34,7 @@ services:
       - jenkins-network
  
   jenkins-docker:
-    image: 1core2/docker:dind2
+    image: 1core2/docker_dind:latest
     container_name: jenkins-docker
     privileged: true
     environment:
@@ -67,3 +68,5 @@ secrets:
     file: ./credantion/telegram_api    
   github_pat:
     file: ./credantion/github_pat
+  key_pem:
+    file: ./credantion/dos-13-Anton_Yudin-lesson_39.pem

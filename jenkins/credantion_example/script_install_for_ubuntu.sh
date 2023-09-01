@@ -42,4 +42,12 @@ cp /home/ubuntu/credantion/* /home/ubuntu/Diplom/jenkins/credantion/
 
 cd /home/ubuntu/Diplom/jenkins
 
+cd
+
+ip_nginx=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=dos-13_Yudin-Anton_NGINX" --query "Reservations[].Instances[].PublicIpAddress" --output text)
+
+output_file="ip_server_nginx"
+
+echo "$ip_nginx" > "$output_file"
+
 sudo docker compose up -d

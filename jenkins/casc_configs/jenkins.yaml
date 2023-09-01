@@ -26,6 +26,14 @@ credentials:
               privateKeySource:
                 directEntry:
                   privateKey: ${github_ssh}
+          - basicSSHUserPrivateKey:
+              description: "aws_ssh"
+              id: "aws_ssh"
+              privateKeySource:
+                directEntry:
+                  privateKey: "${aws_ssh}"
+              scope: GLOBAL
+              username: "ubuntu"
           - string:
               scope: GLOBAL
               id: "aws_access"
@@ -57,14 +65,6 @@ credentials:
               id: github_PAT
               password: ${github_pat}
               username: 2core3
-          - basicSSHUserPrivateKey:
-              description: "aws_ssh"
-              id: "aws_ssh"
-              privateKeySource:
-              directEntry:
-              privateKey: "{aws_ssh}"
-              scope: GLOBAL
-              username: "ubuntu"
 
 security:
   gitHostKeyVerificationConfiguration:

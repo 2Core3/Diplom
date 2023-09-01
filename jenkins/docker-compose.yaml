@@ -26,7 +26,7 @@ services:
       - telegram_id
       - telegram_api
       - github_pat
-      - key_pem
+      - aws_ssh
     volumes:
       - jenkins-data:/var/jenkins_home
       - ./casc_configs:/var/jenkins_home/casc_configs/
@@ -68,5 +68,5 @@ secrets:
     file: ./credantion/telegram_api    
   github_pat:
     file: ./credantion/github_pat
-  key_pem:
+  aws_ssh:
     file: ./credantion/dos-13-Anton_Yudin-lesson_39.pem

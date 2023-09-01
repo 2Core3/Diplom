@@ -24,7 +24,6 @@ configuration-as-code:latest
 terraform:latest
 locale:latest
 telegram-notifications:latest
-kubernetes-cli:latest
 ssh-agent:latest
 ansicolor:latest
 docker-workflow:latest

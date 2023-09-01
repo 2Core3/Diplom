@@ -57,11 +57,14 @@ credentials:
               id: github_PAT
               password: ${github_pat}
               username: 2core3
-          - string:
-              description: "dos-13-Anton_Yudin-lesson_39.pem"
-              id: "key_pem"
+          - basicSSHUserPrivateKey:
+              description: "aws_ssh"
+              id: "aws_ssh"
+              privateKeySource:
+              directEntry:
+              privateKey: "{aws_ssh}"
               scope: GLOBAL
-              secret: "${key_pem}"
+              username: "ubuntu"
 
 security:
   gitHostKeyVerificationConfiguration:

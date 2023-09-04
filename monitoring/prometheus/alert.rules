@@ -1,0 +1,11 @@
+groups:
+  - name: nginx_no_response
+    rules:
+    - alert: nginx_no_response
+      expr: up == 0
+      for: 1m
+      labels:
+        severity: critical
+      annotations:
+        summary: "Port 80 is down"
+        description: "Nginx check failed. On server"

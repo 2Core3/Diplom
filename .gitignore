@@ -1,5 +1,8 @@
 dos-13-Anton_Yudin-lesson_39.pem
 /jenkins/.env
 .env
-terraform
 jenkins/credantion/
+terraform.tfstate.backup
+terraform.tfstate
+.terraform.lock.hcl
+.terraform

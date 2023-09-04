@@ -22,7 +22,8 @@ sudo usermod -aG docker ubuntu
 
 sudo apt  install awscli -y
 
-git clone https://github.com/2Core3/Diplom.git
+#git clone https://github.com/2Core3/Diplom.git
+
 
 export AWS_CONFIG_FILE="/home/ubuntu/.aws/config"
 
@@ -32,22 +33,19 @@ aws_output=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=dos-13_Y
 
 jenkins_url="JENKINS_URL=http://$aws_output:8080/"
 
-echo "$jenkins_url" >> "/home/ubuntu/Diplom/jenkins/.env_example"
+echo "$jenkins_url" >> "/home/ubuntu/Diplom/jenkins/.env"
 
-mv "/home/ubuntu/Diplom/jenkins/.env_example" "/home/ubuntu/Diplom/jenkins/.env"
+#mv "/home/ubuntu/Diplom/jenkins/.env_example" "/home/ubuntu/Diplom/jenkins/.env"
 
-mkdir /home/ubuntu/Diplom/jenkins/credantion
+#mkdir /home/ubuntu/Diplom/jenkins/credantion
 
-cp /home/ubuntu/credantion/* /home/ubuntu/Diplom/jenkins/credantion/
+#cp /home/ubuntu/credantion/* /home/ubuntu/Diplom/jenkins/credantion/
+
+#ip_nginx=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=dos-13_Yudin-Anton_nginx" --query "Reservations[].Instances[].PublicIpAddress" --output text)
+
+#output_file="ip_server_nginx"
+
+#echo "$ip_nginx" > "$output_file"
 
 cd /home/ubuntu/Diplom/jenkins
-
-cd
-
-ip_nginx=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=dos-13_Yudin-Anton_NGINX" --query "Reservations[].Instances[].PublicIpAddress" --output text)
-
-output_file="ip_server_nginx"
-
-echo "$ip_nginx" > "$output_file"
-
 sudo docker compose up -d

@@ -11,7 +11,7 @@ pipelineJob('nginx_main') {
                 }
             }
             triggers {
-                scm('*/15 * * * *')
+                scm('*/30 * * * *')
             }
             scriptPath('Jenkinsfile_main')
         }
@@ -31,7 +31,7 @@ pipelineJob('nginx_test') {
                 }
             }
             triggers {
-                scm('* * * * *')
+                scm('*/11 * * * *')
             }
             scriptPath('Jenkinsfile_test')
         }

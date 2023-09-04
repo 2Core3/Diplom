@@ -11,6 +11,7 @@ alerting:
   - static_configs:
     - targets:
       - 'aws_monitoring:9093'
+      - 'aws_nginx:80'
     scheme: http
     timeout: 10s
     api_version: v1
